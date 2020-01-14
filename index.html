@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Cadastro de ONGs</title>
+    <link rel="icon" href="/img/">
+    <script src="./"></script>
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap" rel="stylesheet">
+
+
+    <!-- Bootstrap -->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="./estilo.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+    <nav class="navbar navbar-fixed-top navbar-inverse navbar-transparente">
+        <div class="container">
+            <!-- header -->
+            <div class="navbar-header">
+                <header class="logo">
+                    <main>
+                        <div class="header-1">
+                            <div class="logo">
+                                <a href="https://polen.com.br/"> <img src="img/logo-polen.png" class="img-responsive"
+                                        alt="Responsive image" />
+                                </a>
+                            </div>
+                        </div>
+                    </main>
+                </header>
+            </div>
+        </div><!-- /container -->
+    </nav><!-- /nav -->
+
+
+
+    <!-- Conteudos -->
+    <div class="capa">
+        <div class="texto-capa">
+
+            <section id="ongs">
+                <div class="container">
+
+                    <div class="row">
+
+                        <div class=" col-xs-10 col-md-11" id="ongs-title">
+                            <div class="text-info">
+                                <h1>ONGs Polinizadoras</h1>
+                            </div>
+                        </div>
+                        <div class=".col-xs-2 .col-md-1 " id="ongs-title">
+                            <div class="btn btn-btn" data-toggle="modal" data-target="#myModal" data-toggle="tooltip"
+                                data-placement="right" onclick=zeraForm() title=" Adicionar novo cadastro">
+                                <h2>+</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+
+
+
+    <p class="css-mine">
+
+        <div class="container">
+            <div class="table-responsive table-responsive{-sm|-md|-lg|-xl}">
+                <table id="editable" class="table pure-table pure-table-bordered data">
+                    <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>Slogan</th>
+                            <th>Link Site</th>
+                            <th>Ativo</th>
+                            <th align="justify">Configuração</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </p>
+    <!-------------------- Modal add --------------------->
+
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="false"
+        style=" overflow: scroll; height:auto;">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header" style="background-color:#590067;">
+                    <h4 class="modal-title" style="font-family: 'Ubuntu', sans-serif; color: mintcream;"
+                        id="myModalLabel">
+                        Novo Cadastro</h4>
+                </div>
+                <div class="form-group modal-body"
+                    style="font-family: 'Ubuntu', sans-serif; margin-left: 10px; margin-right: 20px;">
+                    <form>
+                        <div class="form-group">
+                            <label for="nomedaorganizacao">Nome da Organização</label>
+                            <input type="email" class="form-control" id="nome_add" aria-describedby="emailHelp">
+
+                        </div>
+                        <div class="form-group">
+                            <label for="slogan">Slogan</label>
+                            <input id="slogan_add" type="form-text" class="form-control" aria-describedby="emailHelp">
+                        </div>
+                        <div class="form-group">
+                            <label for="slogan">Link do Site</label>
+                            <input id="link_add" type="form-text" class="form-control" aria-describedby="emailHelp">
+                        </div>
+
+
+                        <button type="button" onclick="adicionar()" class="btn btn-outline-secondary "
+                            style="background-color: #590067; font-family: 'Ubuntu', sans-serif;  color: white; height: 30px; float: right; margin-top: -5px;">Polinizar</button>
+
+
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-------------------- Modal edit --------------------->
+
+    <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel"
+        aria-hidden="false" style=" overflow: scroll; height:auto;">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header" style="background-color:#590067;">
+                    <h4 class="modal-title" style="font-family: 'Ubuntu', sans-serif; color: white;" id="myModalEdit">
+                        Editar Cadastro</h4>
+                </div>
+                <div class="form-group modal-body"
+                    style="font-family: 'Ubuntu', sans-serif; margin-left: 10px; margin-right: 20px;">
+                    <form>
+                        <div class="form-group">
+                            <label for="nomedaorganizacao">Nome da Organização</label>
+                            <input type="email" class="form-control" id="nome_edit" aria-describedby="emailHelp">
+
+                        </div>
+                        <div class="form-group">
+                            <label for="slogan">Slogan</label>
+                            <input id="slogan_edit" type="form-text" class="form-control" aria-describedby="emailHelp">
+                        </div>
+                        <div class="form-group">
+                            <label for="slogan">Link do Site</label>
+                            <input id="link_edit" type="form-text" class="form-control" aria-describedby="emailHelp">
+                        </div>
+
+
+                        <button type="button" onclick="editar_add()" class="btn btn-outline-secondary "
+                            style="background-color: #590067; font-family: 'Ubuntu', sans-serif; color: white; height: 30px; float: right; margin-top: -5px;"
+                            name="botao-polinizar">Polinizar</button>
+
+
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    </div>
+    <!-- jQuery (necessary for Bootstrap's
+                            JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+
+    <!--Controle de webstorage -->
+    <script type="text/javascript">
+        function zeraForm() {
+            document.querySelector("#nome_add").value = "";
+            document.querySelector("#slogan_add").value = "";
+            document.querySelector("#link_add").value = "";
+        }
+
+        function adicionar() {
+            nome = document.querySelector("#nome_add").value;
+            slogan = document.querySelector("#slogan_add").value;
+            link = document.querySelector("#link_add").value;
+            check = 'false';
+
+
+            vetor_info = [nome, slogan, link, check];
+
+            localStorage.setItem(nome, vetor_info);
+
+            str = "<tr id=tab_" + nome + "> <td>" + nome + "</td> <td>" + slogan + "</td> <td>" + link + "</td> <td>" + "<input  type='checkbox' id=check_" + nome + " onclick=checkar(this.id)><br>" + "</td> <td> <a onclick=editar(this.id) data-toggle='modal' data-target='#editModal' id=edit_" + nome+ ">editar</a>  <a onclick=remover(this.id) id=" + nome + ">deletar</a> ";
+
+            document.querySelector("#editable > tbody").innerHTML = document.querySelector("#editable > tbody").innerHTML + str;
+
+            $("#myModal").modal('hide');
+
+        }
+
+
+        function editar(click_id) {
+            name = click_id.split("_")[1];
+            var nome = document.querySelector("#tab_" + name + "> td:nth-child(1)").textContent;
+
+            var value = localStorage.getItem(nome);
+
+
+
+            var values_array = value.split(",");
+
+            nome = values_array[0];
+            slogan = values_array[1];
+            link = values_array[2];
+
+            document.querySelector("#nome_edit").value = nome;
+            document.querySelector("#slogan_edit").value = slogan;
+            document.querySelector("#link_edit").value = link;
+
+            //Removendo
+            localStorage.removeItem(nome);
+
+        }
+
+        function editar_add() {
+            document.querySelector("#editable > tbody").innerHTML = "";
+            //Pegando os valores do local storage e colocando em variáveis
+            for (var i = 0, len = localStorage.length; i < len; i++) {
+                var key = localStorage.key(i);
+                var value = localStorage[key];
+
+                var values_array = value.split(",");
+
+                nome = values_array[0];
+                slogan = values_array[1];
+                link= values_array[2];
+                check = values_array[3];
+
+
+                str = "<tr id=tab_" + nome + "> <td>" + nome + "</td> <td>" + slogan + "</td> <td>" + link + "</td> <td>" + "<input  type='checkbox' id=check_" + nome + " onclick=checkar(this.id)><br>" + "</td> <td> <a onclick=editar(this.id) data-toggle='modal' data-target='#editModal' id=edit_" + nome+ ">editar</a>  <a onclick=remover(this.id) id=" + nome + ">deletar</a> ";
+
+
+                document.querySelector("#editable > tbody").innerHTML = document.querySelector("#editable > tbody").innerHTML + str;
+
+                if(check == 'true'){
+                    document.querySelector("#check_" + nome).checked = true;
+                    $("input[id=check_" + nome).parent().parent().children('td,th').css('background-color', '#7eac56');
+                }
+            }
+
+
+            nome = document.querySelector("#nome_edit").value;
+            slogan = document.querySelector("#slogan_edit").value;
+            link = document.querySelector("#link_edit").value;
+
+
+            vetor_info = [nome, slogan, link, check];
+
+            localStorage.setItem(nome, vetor_info);
+
+            str = "<tr id=tab_" + nome + "> <td>" + nome + "</td> <td>" + slogan + "</td> <td>" + link + "</td> <td>" + "<input  type='checkbox' id=check_" + nome + " onclick=checkar(this.id)><br>" + "</td> <td> <a onclick=editar(this.id) data-toggle='modal' data-target='#editModal' id=edit_" + nome+ ">editar</a>  <a onclick=remover(this.id) id=" + nome + ">deletar</a> ";
+
+            document.querySelector("#editable > tbody").innerHTML = document.querySelector("#editable > tbody").innerHTML + str;
+
+            if(check == 'true'){
+                    document.querySelector("#check_" + nome).checked = true;
+                    $("input[id=check_" + nome).parent().parent().children('td,th').css('background-color', '#7eac56');
+                }
+
+            $("#editModal").modal('hide');
+
+        }
+
+
+        function checkar(click_id){
+            name = click_id.split("_")[1];
+            var nome = document.querySelector("#tab_" + name + "> td:nth-child(1)").textContent;
+            
+            var value = localStorage.getItem(nome);
+
+            
+
+            var values_array = value.split(",");
+
+            nome = values_array[0];
+            slogan = values_array[1];
+            link= values_array[2];
+            
+            if(values_array[3] == 'true'){
+                check = 'false';
+                $("input[id=check_" + nome).parent().parent().children('td,th').css('background-color', '#cccccc');
+            }
+            else {
+                check = 'true';
+                $("input[id=check_" + nome).parent().parent().children('td,th').css('background-color', '#7eac56');
+            }
+
+            vetor_info = [nome, slogan, link, check];
+            
+
+            localStorage.removeItem(nome);
+            localStorage.setItem(nome, vetor_info);
+
+
+        }
+
+
+        function remover(click_id) {
+            var nome = document.querySelector("#tab_" + click_id + "> td:nth-child(1)").textContent;
+            localStorage.removeItem(nome);
+            alert("Item removido.");
+
+            document.querySelector("#editable > tbody").innerHTML = "";
+            //Pegando os valores do local storage e colocando em variáveis
+            for (var i = 0, len = localStorage.length; i < len; i++) {
+                var key = localStorage.key(i);
+                var value = localStorage[key];
+
+                var values_array = value.split(",");
+
+                nome = values_array[0];
+                slogan = values_array[1];
+                link= values_array[2];
+                check = values_array[3];
+
+
+                str = "<tr id=tab_" + nome + "> <td>" + nome + "</td> <td>" + slogan + "</td> <td>" + link + "</td> <td>" + "<input  type='checkbox' id=check_" + nome + " onclick=checkar(this.id)><br>" + "</td> <td> <a onclick=editar(this.id) data-toggle='modal' data-target='#editModal' id=edit_" + nome+ ">editar</a>  <a onclick=remover(this.id) id=" + nome + ">deletar</a> ";
+
+
+                document.querySelector("#editable > tbody").innerHTML = document.querySelector("#editable > tbody").innerHTML + str;
+
+                if(check == 'true'){
+                    document.querySelector("#check_" + nome).checked = true;
+                    $("input[id=check_" + nome).parent().parent().children('td,th').css('background-color', '#7eac56');
+                }
+            }
+        }
+
+
+    </script>
+
+
+    <script>
+        document.querySelector("#editable > tbody").innerHTML = "";
+        //Pegando os valores do local storage e colocando em variáveis
+        for (var i = 0, len = localStorage.length; i < len; i++) {
+            var key = localStorage.key(i);
+            var value = localStorage[key];
+
+            var values_array = value.split(",");
+
+            nome = values_array[0];
+            slogan = values_array[1];
+            link= values_array[2];
+            check = values_array[3];
+
+
+            str = "<tr id=tab_" + nome + "> <td>" + nome + "</td> <td>" + slogan + "</td> <td>" + link + "</td> <td>" + "<input  type='checkbox' id=check_" + nome + " onclick=checkar(this.id)><br>" + "</td> <td> <a onclick=editar(this.id) data-toggle='modal' data-target='#editModal' id=edit_" + nome+ ">editar</a>  <a onclick=remover(this.id) id=" + nome + ">deletar</a> ";
+
+
+
+            document.querySelector("#editable > tbody").innerHTML = document.querySelector("#editable > tbody").innerHTML + str;
+
+
+
+        }
+
+        for (var i = 0, len = localStorage.length; i < len; i++) {
+            var key = localStorage.key(i);
+            var value = localStorage[key];
+
+            var values_array = value.split(",");
+
+            check = values_array[3];
+            if(check == 'true'){
+                    document.querySelector("#check_" + nome).checked = true;
+                    $("input[id=check_" + nome).parent().parent().children('td').css('background-color', '#7eac56');
+                }
+
+        }
+
+
+
+    </script>
+
+    
+
+</body>
+
+</html>
